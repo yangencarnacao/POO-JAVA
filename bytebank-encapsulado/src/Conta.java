@@ -2,7 +2,18 @@ class Conta {
 	private double saldo;
 	private int agencia;
 	private int numero;
-	private Cliente titular;	
+	private Cliente titular;
+	private static int total;
+	// static é um atributo da classe
+	
+	public Conta(int agencia, int numero) {
+		Conta.total++;
+		System.out.println("o total de contas é " + Conta.total);
+		this.agencia = agencia;
+		this.numero = numero;
+		System.out.println("estou criando uma conta" + this.numero);
+		// construtor public Conta() cria uma rotina de inicialização 
+	}
 	
 	void deposita(double valor) {
 		this.saldo += valor;
@@ -45,6 +56,11 @@ class Conta {
 	}
 	
 	public void setNumero(int numero) {
+		if(numero <= 0) {
+			System.out.println("nao pode valor <= 0");
+			return;
+			
+		}
 		this.numero = numero;
 		
 	}
@@ -52,6 +68,10 @@ class Conta {
 		return agencia;
 	}
 	public void setAgencia(int agencia) {
+		if(agencia <= 0) {
+		System.out.println("nao pode valor menor ou igual a 0");
+		return;
+		}
 		this.agencia = agencia;
 	}
 	
@@ -63,6 +83,10 @@ class Conta {
 		return titular;
 	}
 	
+	
+	public static int getTotal() {
+		return Conta.total;
+	}
 }
 
 

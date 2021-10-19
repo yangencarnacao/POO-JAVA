@@ -1,8 +1,12 @@
 
 public class TestaGetESete {
 	public static void main(String[] args) {
-		Conta conta = new Conta();
-		conta.setNumero(1337);
+		Conta conta = new Conta(1234, 23456);
+		
+//		conta.setNumero(1337);
+		// nao precisa mais do conta.setNumero(1337), 
+//		porque o numero da conta já foi setado 
+		
 		System.out.println(conta.getNumero());
 		
 		Cliente yang = new Cliente();
